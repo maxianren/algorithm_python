@@ -1,3 +1,13 @@
+'''
+Given a string that only includes'(',')','{','}','[',']', judge whether the string is valid.
+
+A valid string must meet:
+- The left parenthesis must be closed with the same type of right parenthesis.
+- The opening parenthesis must be closed in the correct order.
+- Note that an empty string can be considered a valid string.
+'''
+
+
 class Stack:
     def __init__(self):
         self.items = []
@@ -21,16 +31,16 @@ def pairBracket(str):
     s=Stack()
     balanced=True
     index=0
+
     #check every symbol in the list-------------------------------
     while index<len(str) and balanced:
         symbol =str[index]
 
         if symbol in '([{':
-            print('right: ', symbol)#debug mark point
+            print('----------------\nright: ', symbol)#debug mark point
             s.push(symbol)
         else:
             print('----------------\nleft: ',symbol)#debug mark point
-
             if s.isEmpty() is True:
                 return False
             else:
@@ -52,5 +62,6 @@ def match_symbol(top, new):
     else:
         return False
 
-str='())))'#input()
-print(pairBracket(str))
+if __name__ == "__main__":
+    str='[[[]]]'
+    print(pairBracket(str))
