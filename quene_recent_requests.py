@@ -32,9 +32,6 @@ class Queue:
     def size(self):
         return len(self.items)
 
-    def peek(self):
-        return self.items[len(self.items)-1]
-
 def func(S):
 
     q=Queue()
