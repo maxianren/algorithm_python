@@ -23,15 +23,26 @@ acb
 
 def func(S):
 
+    '''
+    #not correct in the case to compare 'aac' 'aca'
     min_S=min(S)
 
     while S[0]!=min_S:
         S=S[1:]+S[0]
 
     return S
+    '''
+
+    min_S=S
+    for i in range(1,len(S)):
+        S_move=S[i:]+S[:i]
+        min_S=min(min_S,S_move)
+
+    return min_S
+
 
 if __name__ == "__main__":
-    S = 'fttzr'
+    S = 'abca'
     #S = eval(input())
     print(func(S))
 
