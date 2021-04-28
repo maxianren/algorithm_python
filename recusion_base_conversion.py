@@ -53,7 +53,9 @@ def decimal_to_n(m_decimal,n):
 
 
 if __name__ == "__main__":
-    m, n = map(int, input().split())
-    input_m_base = input()
+    m,n= 8,16
+    #m, n = map(int, input().split())
+    input_m_base = 471
+    #input_m_base = input()
 
     print(m_to_n_base(m, n, input_m_base))
