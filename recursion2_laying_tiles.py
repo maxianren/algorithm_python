@@ -19,6 +19,7 @@ Sample output:
 '''
 
 def tiles(n):
+
     cache_list=[0]*(n+1)
     cache_list[0]=1
 
@@ -33,23 +34,30 @@ def tiles(n):
 
     return cache_list[n]
 
-'''
+def tiles_rec(n,cache_list):
     #recusion method
     if n==1:
+        cache_list[1]=1
         return 1
     elif n==2:
+        cache_list[2] = 2
         return 2
     elif n==3:
+        cache_list[3] = 4
         return 4
     elif n==4:
+        cache_list[4] = 8
         return 8
+
     else:
-        return tiles(n-4)+tiles(n-3)+tiles(n-2)+tiles(n-1)
-'''
+        #to be created a cache list to reduce complexity
+        return tiles_rec(n-1,[0]*(n+1))+tiles_rec(n-2,[0]*(n+1))+tiles_rec(n-3,[0]*(n+1))+tiles_rec(n-4,[0]*(n+1))
+
 
 if __name__ == "__main__":
     n= 6# int(input())
-    print(tiles(n))
+    #print(tiles(n))
+    print(tiles_rec(n,[0]*(n+1)))
 
 
 
